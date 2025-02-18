@@ -21,20 +21,33 @@ export default function ProductsList() {
 
     const addProduct = e => {
         e.preventDefault();
-        const updatedTasks = [...products, newProduct];
-        setProducts(updatedTasks);
+        const updatedProducts = [...products, newProduct];
+        setProducts(updatedProducts);
         setNewProduct('');
+    }
+
+    const removeProduct = i => {
+        const updatedProducts = products.filter((product, index) => {
+            return index !== i
+        });
+        setProducts(updatedProducts);
     }
 
     return (
         <>
 
-            <ul className="products-list">
-                {
-                    products.map((fruit, fruitIndex) => (
-                        <li key={fruitIndex}>{fruit}</li>))
-                }
-            </ul>
+            {products.length === 0 ? <h2>La tua lista è vuota</h2> :
+
+                <ul className="products-list">
+                    {
+                        products.map((fruit, fruitIndex) => (
+                            <li key={fruitIndex}>{fruit}
+                                <button onClick={() => removeProduct(fruitIndex)}>
+                                    Elimina
+                                </button>
+                            </li>))
+                    }
+                </ul>}
 
             <form onSubmit={addProduct}>
                 <input type="text" value={newProduct}
