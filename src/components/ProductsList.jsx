@@ -24,11 +24,16 @@ const mediterraneanFruits = [
 
 export default function ProductsList() {
 
-    return (mediterraneanFruits.map((fruit, fruitIndex) => (
-
-        <li key={fruitIndex}>{fruit}</li>
-
-    ))
+    return (
+        <>
+            <ul className="products-list">
+                {
+                    mediterraneanFruits.map((fruit, fruitIndex) => (
+                        <li key={fruitIndex}>{fruit}</li>))
+                }
+            </ul>
+        </>
     )
 
 }
+
