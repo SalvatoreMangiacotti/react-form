@@ -5,20 +5,10 @@ const mediterraneanFruits = [
     "Limoni",
     "Mandarini",
     "Fichi",
-    "Melograni",
     "Albicocche",
     "Pesche",
-    "Prugne",
-    "Uva",
-    "Cachi",
     "Kiwi",
-    "Nespole",
-    "Mandorle",
-    "Olive",
-    "Cedri",
-    "Mirto",
-    "Carrube",
-    "Fichi d'India"
+    "Nespole"
 ];
 
 
@@ -38,11 +28,6 @@ export default function ProductsList() {
 
     return (
         <>
-            <form onSubmit={addProduct}>
-                <input type="text" value={newProduct}
-                    onChange={event => { setNewProduct(event.target.value) }} />
-                <button>Aggiungi prodotto</button>
-            </form>
 
             <ul className="products-list">
                 {
@@ -50,6 +35,13 @@ export default function ProductsList() {
                         <li key={fruitIndex}>{fruit}</li>))
                 }
             </ul>
+
+            <form onSubmit={addProduct}>
+                <input type="text" value={newProduct}
+                    onChange={event => { setNewProduct(event.target.value) }} />
+                <button>Aggiungi prodotto</button>
+            </form>
+
         </>
     )
 
